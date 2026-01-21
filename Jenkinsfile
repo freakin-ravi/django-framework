@@ -8,9 +8,13 @@ pipeline {
             }
         }
 
-        stage('Run App') {
+        stage('Test') {
             steps {
-                sh 'echo "Running application from private GitHub repo"'
+                sh '''
+                hostname
+                whoami
+                ip a
+                '''
             }
         }
     }
