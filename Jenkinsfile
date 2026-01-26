@@ -10,9 +10,20 @@ pipeline {
 
         stage('Test') {
             steps {
-                bat 'hostname'
-                bat 'whoami'
-                bat 'getmac -v'
+                sh 'hostname'
+                sh 'ip a'
+                sh 'ls -a'
+                sh 'docker image ls'
+                sh 'pwd'
+            }
+        }
+
+        stage('build') {
+            steps {
+                sh '''
+                docker build -t jenkins-custom .
+                docker run -d -p 8090:8080 jenkins-custom
+                sh '''
             }
         }
     }
