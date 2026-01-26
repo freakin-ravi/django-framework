@@ -10,9 +10,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'hostname'
-                sh 'whoami'
-                sh 'ip a'
+                bat 'hostname'
+                bat 'whoami'
+                bat 'getmac -v'
             }
         }
     }
