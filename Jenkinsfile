@@ -10,11 +10,9 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh '''
-                hostname
-                whoami
-                ip a
-                '''
+                sh 'hostname'
+                sh 'whoami'
+                sh 'ip a'
             }
         }
     }
